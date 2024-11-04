@@ -4,8 +4,8 @@ if 1 ~= vim.fn.has("nvim-0.9.0") then
 end
 
 vim.api.nvim_create_user_command("CargoDocTest", function()
-	require("cargo").cargo_test_doc()
+	require("cargo").test_doc()
 end, {})
 vim.api.nvim_create_user_command("CargoRunRelease", function()
-	require("cargo").cargo_run_release()
+	require("cargo").run_release()
 end, {})
