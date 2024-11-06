@@ -3,15 +3,7 @@ local options = {}
 local cargo = {}
 
 local function is_rust_project()
-	local cwd = vim.fn.getcwd()
-	local toml_file = vim.fs.joinpath(cwd, "Cargo.toml")
-	local f = io.open(toml_file, "r")
-	if f then
-		io.close(f)
-		return true
-	else
-		return false
-	end
+	return vim.fn.filereadable(vim.fs.joinpath(vim.fs.getcwd(), "Cargo.toml"))
 end
 
 cargo.run_release = function()
